@@ -7,7 +7,7 @@ from aiogram import Dispatcher
 from loguru import logger
 
 
-
+from .forwarded_message import IsForwarded
 from .group_chat import IsGroup
 
 
