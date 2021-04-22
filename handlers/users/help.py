@@ -8,6 +8,11 @@ from loader import dp
 async def bot_help(message: types.Message):
     text = ("Список команд: ",
             "/start - Начать диалог",
-            "/help - Получить справку")
+            "/help - Получить справку",
+            "/menu - Главное меню",
+            "/channels - Проверить подписок на каналы",
+            "/create_post - Предложить пост на публикацию",
+            "/service - Сервисы для прослуживания музыки")
+
     
     await message.answer("\n".join(text))
