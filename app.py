@@ -1,9 +1,21 @@
+import logging
+
+from loader import db
 from utils.set_bot_commands import set_default_commands
 
 
 async def on_startup(dp):
     import middlewares
     middlewares.setup(dp)
+
+    # Уведомляет про запуск
+    logging.info("Создаем подключение к базе данных")
+    await db.create()
+
+
+    logging.info("Создаем таблицу пользователей")
+    await db.create_table_users()
+    logging.info("Готово.")
 
     from utils.notify_admins import on_startup_notify
     await on_startup_notify(dp)
